@@ -5,7 +5,7 @@ This project analyzes cryptocurrency transaction data exported from the Exodus w
 ## Project Structure
 
 - `main.ipynb`: The Jupyter Notebook containing all data analysis and visualization code.
-- `exodus_0-all-txs-2024-09-20_21-17-11.csv`: CSV file containing the transaction history exported from the Exodus wallet.
+- `exodus_0-all-txs-2024-09-20_21-17-11.csv`: CSV file containing the transaction history exported from the Exodus wallet (Not included for the analysis).
 - `exodus_synthetic_data.py`: A Python script for generating synthetic cryptocurrency transaction data for analysis.
 - `README.md`: This file, containing an overview of the project.
 
