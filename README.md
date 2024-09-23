@@ -1,11 +1,12 @@
 # Exodus Wallet Transaction Data Analysis
 
-This project analyses cryptocurrency transaction data exported from the Exodus wallet. The goal is to explore and visualise the inflows and outflows of assets, the types of transactions, and other key metrics over time.
+This project analyzes cryptocurrency transaction data exported from the Exodus wallet. The goal is to explore and visualize the inflows and outflows of assets, the types of transactions, and other key metrics over time.
 
 ## Project Structure
 
-- `main.ipynb`: The Jupyter Notebook containing all data analysis and visualisation code.
+- `main.ipynb`: The Jupyter Notebook containing all data analysis and visualization code.
 - `exodus_0-all-txs-2024-09-20_21-17-11.csv`: CSV file containing the transaction history exported from the Exodus wallet.
+- `exodus_synthetic_data.py`: A Python script for generating synthetic cryptocurrency transaction data for analysis.
 - `README.md`: This file, containing an overview of the project.
 
 ## Data Preparation
@@ -29,41 +30,113 @@ The data cleaning steps involved:
 - Converting the `DATE` column to a `datetime` format for easy time-based analysis.
 - Dropping unnecessary columns such as `TOADDRESS` and `FROMADDRESS` if they were deemed irrelevant for the analysis.
 
+## Synthetic Data Generation
+
+The project includes a script to generate synthetic cryptocurrency transaction data for testing purposes.
+
+### `exodus_synthetic_data.py`
+
+This script creates a fake dataset containing random cryptocurrency transactions, including inflows, outflows, and wallet addresses. The script uses the `Faker` library to generate fake data such as:
+
+- Random cryptocurrency names (e.g., Bitcoin, Ethereum).
+- Random inflow and outflow amounts.
+- Wallet addresses and transaction IDs.
+
+You can modify the number of rows and adjust the parameters to fit your needs.
+
+```python
+import pandas as pd
+import numpy as np
+from faker import Faker
+
+# Instantiate Faker for generating fake data
+fake = Faker()
+
+# Parameters for the synthetic dataset
+num_rows = 1000  # Change this number to match the size of your dataset
+
+# Generate random dates within a year
+date_range = pd.date_range(start='2023-01-01', end='2024-01-01', periods=num_rows)
+
+# Generate random cryptocurrency names from a predefined list
+crypto_names = ['Bitcoin', 'Ethereum', 'Litecoin', 'Dash', 'Zcash', 'BCH_USD', 'Bytecoin']
+random_crypto = np.random.choice(crypto_names, num_rows)
+
+# Random inflow and outflow amounts
+in_amounts = np.random.uniform(low=0.01, high=5.0, size=num_rows)
+out_amounts = np.random.uniform(low=0.01, high=5.0, size=num_rows)
+
+# Generate random wallet addresses and transaction IDs using Faker
+to_wallets = [fake.sha256() for _ in range(num_rows)]
+from_wallets = [fake.sha256() for _ in range(num_rows)]
+tx_ids = [fake.sha256() for _ in range(num_rows)]
+
+# Create the synthetic dataset
+synthetic_data = pd.DataFrame({
+    'DATE': date_range,
+    'ASSET': random_crypto,
+    'INAMOUNT': in_amounts,
+    'OUTAMOUNT': out_amounts,
+    'TO': to_wallets,
+    'FROM': from_wallets,
+    'TXID': tx_ids
+})
+
+# Save to CSV
+synthetic_data.to_csv('synthetic_crypto_transactions.csv', index=False)
+```
+
+### Usage
+
+To generate synthetic data, simply run the `exodus_synthetic_data.py` script, which will create a CSV file named `synthetic_crypto_transactions.csv`.
+
+```bash
+python exodus_synthetic_data.py
+```
+
 ## Data Analysis
 
 ### Types of Analysis Performed
 
-1. **Transaction Types**: Analysing different types of transactions (deposits, withdrawals) and the cryptocurrencies involved.
-2. **Summarising Inflows & Outflows**: Aggregating the inflows (deposits) and outflows (withdrawals) by various time frames (daily, weekly, monthly, and yearly).
+1. **Transaction Types**: Analyzing different types of transactions (deposits, withdrawals) and the cryptocurrencies involved.
+2. **Summarizing Inflows & Outflows**: Aggregating the inflows (deposits) and outflows (withdrawals) by various time frames (daily, weekly, monthly, and yearly).
 3. **Distribution of Transaction Amounts**: Examining the distribution of amounts transacted for both deposits and withdrawals.
 4. **Frequency of Transactions**: Investigating the frequency of transactions for different assets.
 
-### Data Exploration
+## Visualization
 
-The following steps were carried out:
-
-1. **Explore Transaction Types**: Identified unique transaction types and grouped them by the type of cryptocurrency involved.
-2. **Summarise Inflows and Outflows**: Aggregated transaction amounts based on various time intervals, including daily, monthly, and yearly.
-3. **Transaction Amount Distribution**: Generated histograms to visualise the distribution of transaction amounts.
-4. **Transaction Frequency by Asset**: Summarised the number of transactions for each cryptocurrency.
-
-## Visualisation
-
-The project includes several visualisations to make the data easier to understand:
+The project includes several visualizations to make the data easier to understand:
 
 1. **Inflows and Outflows Over Time**: A time-series plot showing how much cryptocurrency was deposited and withdrawn over different time periods.
-2. **Bar Charts for Asset Distribution**: Bar charts were created to visualise the volume of transactions per cryptocurrency.
+2. **Bar Charts for Asset Distribution**: Bar charts were created to visualize the volume of transactions per cryptocurrency.
 3. **Pie Chart for Asset Allocation**: A pie chart was used to display the distribution of assets based on inflows.
 
 ### Libraries Used
 
 - **pandas**: For data manipulation and cleaning.
 - **matplotlib**: For basic plotting of the data.
-- **seaborn**: For creating more advanced, aesthetic visualisations.
+- **seaborn**: For creating more advanced, aesthetic visualizations.
 
 ## Running the Project
 
-To run the analysis and visualisations, ensure you have the required Python libraries installed:
+To run the analysis and visualizations, ensure you have the required Python libraries installed:
 
 ```bash
-pip install pandas matplotlib seaborn
+pip install pandas matplotlib seaborn faker
+```
+
+Then, open the `main.ipynb` file in Jupyter Notebook or any compatible environment, and execute the cells. You can also run the synthetic data script to create a test dataset if needed.
+
+## Future Work
+
+- Improve transaction classification, such as categorizing based on the destination or source.
+- Incorporate more advanced visualization techniques such as interactive charts using `plotly`.
+- Explore further statistical analysis of fees, gains, and losses for the assets.
+
+## Author
+
+- @gappeah
+
+## License
+
+This project is licensed under the MIT License.
