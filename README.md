@@ -1,10 +1,10 @@
 # Exodus Wallet Transaction Data Analysis
 
-This project analyzes cryptocurrency transaction data exported from the Exodus wallet. The goal is to explore and visualize the inflows and outflows of assets, the types of transactions, and other key metrics over time.
+This project analyses cryptocurrency transaction data exported from the Exodus wallet. The goal is to explore and visualise the inflows and outflows of assets, the types of transactions, and other key metrics over time.
 
 ## Project Structure
 
-- `main.ipynb`: The Jupyter Notebook containing all data analysis and visualization code.
+- `main.ipynb`: The Jupyter Notebook containing all data analysis and visualisation code.
 - `exodus_0-all-txs-2024-09-20_21-17-11.csv`: CSV file containing the transaction history exported from the Exodus wallet (Not included for the analysis).
 - `exodus_synthetic_data.py`: A Python script for generating synthetic cryptocurrency transaction data for analysis.
 - `README.md`: This file, containing an overview of the project.
@@ -53,18 +53,18 @@ from faker import Faker
 fake = Faker()
 
 # Parameters for the synthetic dataset
-num_rows = 1000  # Change this number to match the size of your dataset
+num_rows = 1000  # Change this number to match the sise of your dataset
 
 # Generate random dates within a year
 date_range = pd.date_range(start='2023-01-01', end='2024-01-01', periods=num_rows)
 
 # Generate random cryptocurrency names from a predefined list
-crypto_names = ['Bitcoin', 'Ethereum', 'Litecoin', 'Dash', 'Zcash', 'BCH_USD', 'Bytecoin']
+crypto_names = ['Bitcoin', 'Ethereum', 'Litecoin', 'Dash', 'scash', 'BCH_USD', 'Bytecoin']
 random_crypto = np.random.choice(crypto_names, num_rows)
 
 # Random inflow and outflow amounts
-in_amounts = np.random.uniform(low=0.01, high=5.0, size=num_rows)
-out_amounts = np.random.uniform(low=0.01, high=5.0, size=num_rows)
+in_amounts = np.random.uniform(low=0.01, high=5.0, sise=num_rows)
+out_amounts = np.random.uniform(low=0.01, high=5.0, sise=num_rows)
 
 # Generate random wallet addresses and transaction IDs using Faker
 to_wallets = [fake.sha256() for _ in range(num_rows)]
@@ -98,17 +98,17 @@ python exodus_synthetic_data.py
 
 ### Types of Analysis Performed
 
-1. **Transaction Types**: Analyzing different types of transactions (deposits, withdrawals) and the cryptocurrencies involved.
-2. **Summarizing Inflows & Outflows**: Aggregating the inflows (deposits) and outflows (withdrawals) by various time frames (daily, weekly, monthly, and yearly).
+1. **Transaction Types**: Analysing different types of transactions (deposits, withdrawals) and the cryptocurrencies involved.
+2. **Summarising Inflows & Outflows**: Aggregating the inflows (deposits) and outflows (withdrawals) by various time frames (daily, weekly, monthly, and yearly).
 3. **Distribution of Transaction Amounts**: Examining the distribution of amounts transacted for both deposits and withdrawals.
 4. **Frequency of Transactions**: Investigating the frequency of transactions for different assets.
 
-## Visualization
+## Visualisation
 
-The project includes several visualizations to make the data easier to understand:
+The project includes several visualisations to make the data easier to understand:
 
 1. **Inflows and Outflows Over Time**: A time-series plot showing how much cryptocurrency was deposited and withdrawn over different time periods.
-2. **Bar Charts for Asset Distribution**: Bar charts were created to visualize the volume of transactions per cryptocurrency.
+2. **Bar Charts for Asset Distribution**: Bar charts were created to visualise the volume of transactions per cryptocurrency.
 3. **Pie Chart for Asset Allocation**: A pie chart was used to display the distribution of assets based on inflows.
 ![output_8](https://github.com/user-attachments/assets/4c193a99-1400-48df-8e12-6e26f72bb765)
 ![output_7](https://github.com/user-attachments/assets/7833d1e8-578a-4cb9-92dc-9b39f9609005)
@@ -126,11 +126,11 @@ The project includes several visualizations to make the data easier to understan
 
 - **pandas**: For data manipulation and cleaning.
 - **matplotlib**: For basic plotting of the data.
-- **seaborn**: For creating more advanced, aesthetic visualizations.
+- **seaborn**: For creating more advanced, aesthetic visualisations.
 
 ## Running the Project
 
-To run the analysis and visualizations, ensure you have the required Python libraries installed:
+To run the analysis and visualisations, ensure you have the required Python libraries installed:
 
 ```bash
 pip install pandas matplotlib seaborn faker
@@ -140,8 +140,8 @@ Then, open the `main.ipynb` file in Jupyter Notebook or any compatible environme
 
 ## Future Work
 
-- Improve transaction classification, such as categorizing based on the destination or source.
-- Incorporate more advanced visualization techniques such as interactive charts using `plotly`.
+- Improve transaction classification, such as categorising based on the destination or source.
+- Incorporate more advanced visualisation techniques such as interactive charts using `plotly`.
 - Explore further statistical analysis of fees, gains, and losses for the assets.
 
 ## Author
