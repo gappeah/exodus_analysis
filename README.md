@@ -110,6 +110,17 @@ The project includes several visualizations to make the data easier to understan
 1. **Inflows and Outflows Over Time**: A time-series plot showing how much cryptocurrency was deposited and withdrawn over different time periods.
 2. **Bar Charts for Asset Distribution**: Bar charts were created to visualize the volume of transactions per cryptocurrency.
 3. **Pie Chart for Asset Allocation**: A pie chart was used to display the distribution of assets based on inflows.
+![output_8](https://github.com/user-attachments/assets/4c193a99-1400-48df-8e12-6e26f72bb765)
+![output_7](https://github.com/user-attachments/assets/7833d1e8-578a-4cb9-92dc-9b39f9609005)
+![output_6](https://github.com/user-attachments/assets/da584009-724c-495f-addd-a03f10a8779b)
+![output_5](https://github.com/user-attachments/assets/e25ea385-9e70-4369-9ed8-c2785db293ee)
+![output_4](https://github.com/user-attachments/assets/d4dae86a-e86c-44c4-9b88-049f5c9ecf01)
+![output_3](https://github.com/user-attachments/assets/0c265f9b-6252-419b-ae5e-6243ac226cd6)
+![output_2](https://github.com/user-attachments/assets/732849db-6234-4288-b045-566f60a8526d)
+![output_1](https://github.com/user-attachments/assets/79d74ac5-5b57-4c7f-aaab-0f42d9f4dcd4)
+![output](https://github.com/user-attachments/assets/0849e10c-5bd1-47c5-b034-a5ee43f819fa)
+
+
 
 ### Libraries Used
 
