@@ -138,12 +138,6 @@ pip install pandas matplotlib seaborn faker
 
 Then, open the `main.ipynb` file in Jupyter Notebook or any compatible environment, and execute the cells. You can also run the synthetic data script to create a test dataset if needed.
 
-## Future Work
-
-- Improve transaction classification, such as categorising based on the destination or source.
-- Incorporate more advanced visualisation techniques such as interactive charts using `plotly`.
-- Explore further statistical analysis of fees, gains, and losses for the assets.
-
 ## Author
 
 - @gappeah
